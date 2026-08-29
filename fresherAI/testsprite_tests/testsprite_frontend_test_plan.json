@@ -1,0 +1,1057 @@
+[
+  {
+    "id": "TC001",
+    "title": "Access the dashboard after signing in",
+    "description": "A signed-in user can complete login from the homepage and land in the authenticated dashboard experience.",
+    "category": "Login and registration",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Open the login modal"
+      },
+      {
+        "type": "action",
+        "description": "Choose Google sign-in"
+      },
+      {
+        "type": "action",
+        "description": "Complete authentication with valid credentials"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the authenticated dashboard is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify protected navigation is available"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC002",
+    "title": "Redirect a logged-out visitor away from protected pages",
+    "description": "A signed-out visitor who tries to open a protected route is redirected to the public homepage.",
+    "category": "Dashboard",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /dashboard"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the public homepage is displayed"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /resume"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the public homepage is displayed"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /roadmap"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the public homepage is displayed"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /scorer"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the public homepage is displayed"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /interview"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the public homepage is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC003",
+    "title": "Redirect logged-out users away from the dashboard",
+    "description": "A logged-out user who opens the dashboard route is redirected to the homepage instead of seeing protected content.",
+    "category": "Authentication and route protection",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /dashboard"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the homepage is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify protected dashboard content is not displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC004",
+    "title": "Access the authenticated dashboard",
+    "description": "An authenticated user can reach the dashboard and see the protected overview area.",
+    "category": "Dashboard",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Click the dashboard navigation link"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the dashboard overview is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify protected navigation controls are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC005",
+    "title": "Redirect logged-out users away from resume tools",
+    "description": "A logged-out user who opens the resume route is redirected to the homepage instead of seeing protected content.",
+    "category": "Authentication and route protection",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /resume"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the homepage is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify protected resume content is not displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC006",
+    "title": "Redirect logged-out users away from roadmap and interview tools",
+    "description": "A logged-out user who opens protected learning and interview routes is redirected to the homepage instead of seeing protected content.",
+    "category": "Authentication and route protection",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /roadmap"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the homepage is displayed"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /interview"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the homepage is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify protected tool content is not displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC007",
+    "title": "Sign out from the dashboard",
+    "description": "An authenticated user can log out and lose access to protected navigation.",
+    "category": "Dashboard",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Click the dashboard navigation link"
+      },
+      {
+        "type": "action",
+        "description": "Click the sign out control"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the public homepage is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify protected navigation controls are no longer displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC008",
+    "title": "Start an interview and review the report",
+    "description": "An authenticated user can set up an interview, begin a session, and open the completed interview report.",
+    "category": "Dashboard",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Click the interview navigation link"
+      },
+      {
+        "type": "action",
+        "description": "Choose interview options"
+      },
+      {
+        "type": "action",
+        "description": "Start the interview"
+      },
+      {
+        "type": "action",
+        "description": "Answer the current interview question"
+      },
+      {
+        "type": "action",
+        "description": "Finish the interview"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the interview report is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify interview feedback is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC009",
+    "title": "Upload a supported resume and see parsed details",
+    "description": "An authenticated user can upload a supported resume file and see extracted resume data displayed in the builder.",
+    "category": "Resume upload and parsing",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Click the resume navigation link"
+      },
+      {
+        "type": "action",
+        "description": "Open the resume builder"
+      },
+      {
+        "type": "action",
+        "description": "Select a supported resume file"
+      },
+      {
+        "type": "action",
+        "description": "Submit the upload"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a parsing progress state is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify parsed resume details are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC010",
+    "title": "Start an interview from the setup flow",
+    "description": "An authenticated user can configure interview options and start a new interview session successfully.",
+    "category": "Interview functionality",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the login credential field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /interview"
+      },
+      {
+        "type": "action",
+        "description": "Select valid interview options"
+      },
+      {
+        "type": "action",
+        "description": "Start the interview"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an active interview session opens"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify interview questions are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC011",
+    "title": "Complete an interview and review the report",
+    "description": "An authenticated user can finish an interview and open the report to review feedback and summary content.",
+    "category": "Interview functionality",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the login credential field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /interview"
+      },
+      {
+        "type": "action",
+        "description": "Select valid interview options"
+      },
+      {
+        "type": "action",
+        "description": "Start the interview"
+      },
+      {
+        "type": "action",
+        "description": "Continue through the interview until it is completed"
+      },
+      {
+        "type": "action",
+        "description": "Open the interview report"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify interview feedback is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a report summary is visible"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC012",
+    "title": "Move from the dashboard to core tools",
+    "description": "An authenticated user can use dashboard navigation to reach the resume, roadmap, scorer, interview, and pricing areas.",
+    "category": "Dashboard",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Click the dashboard navigation link"
+      },
+      {
+        "type": "action",
+        "description": "Click the resume navigation link"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the resume builder is displayed"
+      },
+      {
+        "type": "action",
+        "description": "Click the roadmap navigation link"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the roadmap is displayed"
+      },
+      {
+        "type": "action",
+        "description": "Click the scorer navigation link"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the resume scoring area is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC013",
+    "title": "Open and review the personalized roadmap",
+    "description": "An authenticated user can open the roadmap page and see generated roadmap guidance after it loads.",
+    "category": "Roadmap",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the login credential field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /roadmap"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the roadmap content to load"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify generated roadmap guidance is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify roadmap content is available"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC014",
+    "title": "Open resume analysis from the scorer",
+    "description": "An authenticated user can request resume analysis and see a score with recommendations.",
+    "category": "AI resume analysis",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Click the scorer navigation link"
+      },
+      {
+        "type": "action",
+        "description": "Request analysis"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a loading state is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a resume score is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify AI recommendations are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC015",
+    "title": "Submit an answer during an active interview",
+    "description": "An authenticated user can answer a question in an active interview session and continue the session afterward.",
+    "category": "Interview functionality",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the login credential field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /interview"
+      },
+      {
+        "type": "action",
+        "description": "Select valid interview options"
+      },
+      {
+        "type": "action",
+        "description": "Start the interview"
+      },
+      {
+        "type": "action",
+        "description": "Fill in an answer to the current question"
+      },
+      {
+        "type": "action",
+        "description": "Submit the answer"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the interview advances to the next question or updated state"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the submitted answer is accepted"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC016",
+    "title": "Load a personalized roadmap",
+    "description": "An authenticated user can open the roadmap and see generated learning guidance.",
+    "category": "Dashboard",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Click the roadmap navigation link"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the roadmap content is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify learning guidance is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC017",
+    "title": "Return to the roadmap after navigating through authenticated tools",
+    "description": "An authenticated user can move between the dashboard and roadmap and still review the personalized roadmap content.",
+    "category": "Roadmap",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the login credential field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /dashboard"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to the roadmap"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the roadmap content to load"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify generated roadmap guidance is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the user can access roadmap content from authenticated navigation"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC018",
+    "title": "Access protected roadmap and interview routes from authenticated navigation",
+    "description": "An authenticated user can move from the dashboard into roadmap and interview tools through the app navigation.",
+    "category": "Roadmap",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the login credential field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /dashboard"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to the roadmap"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to the interview tool"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the interview setup page is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify protected navigation is available"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC019",
+    "title": "View homepage content",
+    "description": "A public visitor can load the homepage and see the platform’s core landing content.",
+    "category": "Homepage and navigation",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the homepage content is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the platform sections are displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC020",
+    "title": "Leave an interview and return to the setup flow",
+    "description": "An authenticated user can exit an active interview session and return to the interview setup page.",
+    "category": "Interview functionality",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the login credential field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /interview"
+      },
+      {
+        "type": "action",
+        "description": "Select valid interview options"
+      },
+      {
+        "type": "action",
+        "description": "Start the interview"
+      },
+      {
+        "type": "action",
+        "description": "Exit the interview session"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the interview setup flow is shown again"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the active interview session is no longer visible"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC021",
+    "title": "Open and close the login modal from the homepage",
+    "description": "A public visitor can open the login modal from the homepage and dismiss it without leaving the page.",
+    "category": "Homepage and navigation",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the login entry point"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the login modal is displayed"
+      },
+      {
+        "type": "action",
+        "description": "Close the login modal"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the login modal is dismissed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC022",
+    "title": "Start onboarding from the homepage",
+    "description": "A public visitor can use the primary onboarding entry point from the homepage to open the login modal.",
+    "category": "Homepage and navigation",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the free onboarding entry point"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the login modal is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the homepage remains accessible"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC023",
+    "title": "Open the public homepage",
+    "description": "A public visitor can load the homepage and see the main entry point to the app.",
+    "category": "Dashboard",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the homepage content is displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC024",
+    "title": "View roadmap loading state before content appears",
+    "description": "An authenticated user sees a loading state on the roadmap page before the personalized content is displayed.",
+    "category": "Roadmap",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the login credential field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /roadmap"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the roadmap request to begin"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a roadmap loading state is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify roadmap content eventually becomes visible"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC025",
+    "title": "Cancel sign-in and stay on the homepage",
+    "description": "A visitor who cancels the sign-in attempt remains on the public homepage without entering the authenticated app.",
+    "category": "Login and registration",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Open the login modal"
+      },
+      {
+        "type": "action",
+        "description": "Choose Google sign-in"
+      },
+      {
+        "type": "action",
+        "description": "Cancel the sign-in attempt"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the homepage is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the authenticated dashboard is not displayed"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC026",
+    "title": "Reject an invalid resume file type",
+    "description": "An authenticated user who selects an unsupported file type sees validation feedback and stays on the resume builder.",
+    "category": "Resume upload and parsing",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Click the resume navigation link"
+      },
+      {
+        "type": "action",
+        "description": "Open the resume builder"
+      },
+      {
+        "type": "action",
+        "description": "Select an invalid file type"
+      },
+      {
+        "type": "action",
+        "description": "Submit the upload"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a file validation error is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the resume builder remains displayed"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC027",
+    "title": "Keep analysis errors on the scorer page",
+    "description": "An authenticated user sees analysis error feedback on the scorer without being taken away from the page.",
+    "category": "AI resume analysis",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Click the scorer navigation link"
+      },
+      {
+        "type": "action",
+        "description": "Request analysis"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an analysis error state is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the resume scoring area remains displayed"
+      }
+    ],
+    "priority": "Low"
+  }
+]
